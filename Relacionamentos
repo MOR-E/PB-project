@@ -1,0 +1,7 @@
+Relacionamentos do banco
+
+Pesagem -> Cadastro 
+
+Toda Pesagem pertence a um Cadastro = 1 to 1
+Um cadastro pode ter multiplas pesagens = 1 to N
+
