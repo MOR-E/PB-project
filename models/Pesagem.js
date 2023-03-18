@@ -4,7 +4,8 @@ const connection = require("../database/database");
 const Pesagem = connection.define("pesagem", {
     id:{
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     }, peso: {
         type: Sequelize.DOUBLE,
         allowNull: false
@@ -16,5 +17,7 @@ const Pesagem = connection.define("pesagem", {
         allowNull: false
     }
 })
+
+//Pesagem.sync({force: true}); // Força de sincronização
 
 module.exports = Pesagem;

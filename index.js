@@ -6,6 +6,10 @@ const connection = require("./database/database");
 const pesagemControoler = require("./routes/weighing/PesagemController");
 const cadastroControoler = require("./routes/register/CadastroController");
 
+//models
+const Cadastro = require("./models/Cadastro");
+const Pesagem = require("./models/Pesagem");
+
 //View engine
 app.set("view engine", "ejs");
 

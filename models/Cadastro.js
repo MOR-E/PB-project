@@ -1,10 +1,12 @@
 const Sequelize = require("sequelize");
 const connection = require("../database/database");
+const Pesagem = require("./Pesagem");
 
 const Cadastro = connection.define("cadastro", {
     id:{
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
     }, numero: {
         type: Sequelize.STRING,
         allowNull: false
@@ -19,5 +21,12 @@ const Cadastro = connection.define("cadastro", {
         allowNull: false
     }
 })
+
+
+Pesagem.belongsTo(Cadastro); // uma pesagem pertence a apenas um cadastro
+Cadastro.hasMany(Pesagem);  // um cadastro tem muitas pesagens
+
+//Cadastro.sync({force: true}); // Força de sincronização
+
 
 module.exports = Cadastro;
