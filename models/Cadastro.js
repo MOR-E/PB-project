@@ -3,11 +3,7 @@ const connection = require("../database/database");
 const Pesagem = require("./Pesagem");
 
 const Cadastro = connection.define("cadastro", {
-    id:{
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey: true
-    }, numero: {
+    numero: {
         type: Sequelize.STRING,
         allowNull: false
     }, sexo: {
@@ -15,9 +11,6 @@ const Cadastro = connection.define("cadastro", {
         allowNull: false
     }, nascimento: {
         type: Sequelize.DATE,
-        allowNull: false
-    }, slug: {
-        type: Sequelize.STRING,
         allowNull: false
     }
 })

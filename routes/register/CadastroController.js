@@ -12,16 +12,13 @@ router.get("/admin/cadastro/new", (req,res) => {
 });
 
 router.post("/cadastro/save", (req, res) => {
-    var id = req.body.id;
     var numero = req.body.numero;
     var sexo = req.body.sexo;
     var nascimento = req.body.nascimento;
 
-    if(id, numero, sexo, nascimento != undefined){
+    if(numero, sexo, nascimento != undefined){
 
         Cadastro.create({
-            id: id,
-            slug: slugify(id),
             numero: numero,
             sexo: sexo,
             nascimento: nascimento
@@ -33,6 +30,50 @@ router.post("/cadastro/save", (req, res) => {
         res.redirect("/admin/category/new");
     }
 
+});
+
+router.get("/admin/cadastro", (req, res) => {
+
+    Cadastro.findAll().then(cadastros => {
+        res.render("admin/cadastro/index", {cadastros: cadastros});
+    });
+});
+
+router.post("/cadastros/delete", (req, res) => {
+    var id =req.body.id;
+    if(id != undefined){
+        if(!isNaN(id)){
+            Cadastro.destroy({
+                where: {
+                    id: id
+                }
+            }).then(()=> {
+                res.redirect("/admin/cadastro")
+            })
+        }else {
+            res.redirect("/admin/cadastro")
+        }
+    }else {
+        res.redirect("/admin/cadastro")
+    }
+});
+
+router.get("/admin/cadastro/edit/:id", (req, res) => {
+    var id = req.params.id;
+
+    if(isNaN(id)){
+        res.redirect("/admin/cadastro")
+    }
+
+    Cadastro.findByPk(id).then(cadastro => {
+        if(cadastro != undefined){
+            res.render("admin/cadastro/edit", {cadastro: cadastro})
+        }else {
+            res.redirect("/admin/cadastro")
+        }
+    }).catch(error => {
+        res.redirect("/admin/cadastro")
+    })
 });
 
 module.exports = router;

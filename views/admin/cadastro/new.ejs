@@ -11,8 +11,6 @@
             <div class="card-body">
                 <form action="/cadastro/save" method="POST">
                     <br>
-                    <input class="form-control" type="number" name="id" placeholder="Defina o ID do animal">
-                    <br>
                     <input class="form-control" type="number" name="numero" placeholder="Defina o número do animal">
                     <br>
                     
@@ -21,11 +19,11 @@
                             <h3>Sexo do animal</h3>
                         </div>
                         <div class="input-group-text">
-                            <input class="form-control" type="radio" value ="femea" name="sexo" placeholder="Defina o sexo do animal">
+                            <input class="form-control" type="radio" name="sexo" value ="macho">
                             <input type="text" class="form-control"  placeholder="Masculino">
 
-                            <input class="form-control" type="radio" name="sexo" value ="femea" placeholder="Defina o sexo do animal">
-                            <input type="none" class="form-control" placeholder="Feminino">
+                            <input class="form-control" type="radio" name="sexo" value ="femea">
+                            <input type="text" class="form-control" placeholder="Feminino">
                         </div>
                     </div>
                     
