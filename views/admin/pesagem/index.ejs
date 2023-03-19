@@ -3,17 +3,15 @@
 
 <div class="container">
     <hr>
-    <h2>Tela de cadastros</h2>
-    <hr>
-    <a class="btn btn-success" href="/admin/cadastro/new">Cadastrar novo animal</a>
+    <h2>Tela de Pesagem</h2>
     <hr>
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Número</th>
-                <th>Sexo</th>
-                <th>Nascimento</th>
+                <th>Data da pesagem</th>
+                <th>Peso</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -23,15 +21,15 @@
                 <tr>
                     <th><%= cadastro.id %></th>
                     <th><%= cadastro.numero %></th>
-                    <th><%= cadastro.sexo %></th>
-                    <th><%= cadastro.nascimento %></th>
+                    <th><%= %></th>
+                    <th><%= %></th>
                     <th>
-                        <a href="/admin/cadastro/edit/<%= cadastro.id %>" class="btn btn-warning">Editar</a>
-                        <form action="/cadastros/delete" method="POST" style="display: inline" onsubmit="confirmarDelecao(event, this)">
+                        <a href="/admin/pesagem/edit/<%= cadastro.id %>" class="btn btn-warning">Editar</a>
+                        <form action="/pesagem/delete" method="POST" style="display: inline" onsubmit="confirmarDelecao(event, this)">
                             <button class="btn btn-danger">Deletar</button>
                             <input type="hidden" name="id" value="<%= cadastro.id %>">
                         </form>
-                        
+                        <a href="/admin/pesagem/new/<%= cadastro.id %>" class="btn btn-success">Pesar</a>
                     </th>
                 </tr>
             <% }) %>

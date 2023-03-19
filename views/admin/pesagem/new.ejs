@@ -1,0 +1,29 @@
+<%-include ('../../partials/header.ejs')%>
+<%-include ('../../partials/navbar.ejs')%>
+
+<div class="container">
+
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h2>Pesagem de animal</h2>
+            </div>
+            <div class="card-body">
+                <form action="/pesagem/save" method="POST">
+                    <br>
+
+                    <br>
+                    <input class="form-control" type="number" name="numero" value="<%= cadastro.numero %>">
+                    <br>
+                    <input class="form-control" type="number" name="peso" placeholder="Informe o peso">
+                    <br>
+                    <input class="form-control"type="date" name="data_pesagem">
+                    <br>
+                    <button class="btn btn-success">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+</div>
+
+
+<%-include ('../../partials/footer.ejs')%>

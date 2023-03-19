@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
 
-const pesagemControoler = require("./routes/weighing/PesagemController");
+const pesagemControoler = require("./routes/weight/PesagemController");
 const cadastroControoler = require("./routes/register/CadastroController");
 
 //models

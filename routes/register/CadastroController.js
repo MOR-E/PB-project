@@ -27,13 +27,12 @@ router.post("/cadastro/save", (req, res) => {
         })
 
     } else {
-        res.redirect("/admin/category/new");
+        res.redirect("/admin/cadastro/new");
     }
 
 });
 
 router.get("/admin/cadastro", (req, res) => {
-
     Cadastro.findAll().then(cadastros => {
         res.render("admin/cadastro/index", {cadastros: cadastros});
     });
@@ -73,6 +72,21 @@ router.get("/admin/cadastro/edit/:id", (req, res) => {
         }
     }).catch(error => {
         res.redirect("/admin/cadastro")
+    })
+});
+
+router.post("/cadastro/update",(req, res) => {
+    var id = req.body.id;
+    var numero = req.body.numero;
+    var sexo = req.body.sexo;
+    var nascimento = req.body.nascimento;
+
+    Cadastro.update({numero: numero, sexo: sexo, nascimento: nascimento}, {
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect("/admin/cadastro");
     })
 });
 

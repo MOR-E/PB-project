@@ -9,10 +9,12 @@
                 <h2>Edição de animal</h2>
             </div>
             <div class="card-body">
-                <form action="/cadastro/save" method="POST">
+                <form action="/cadastro/update" method="POST">
                     <br>
                     <input class="form-control" type="number" name="numero" value="<%= cadastro.numero %>" placeholder="Defina o número do animal">
                     <br>
+
+                    <input type="hidden" name="id" value="<%= cadastro.id %>">
                     
                     <div class="input-group mb-3">
                         <div class="card-header">
